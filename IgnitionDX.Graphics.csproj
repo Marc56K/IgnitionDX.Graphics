@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F27B1AE6-2FE9-4804-8949-0B46730610A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IgnitionDX.Graphics</RootNamespace>
+    <AssemblyName>IgnitionDX.Graphics</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.4.2.0\lib\net40\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.D3DCompiler, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.D3DCompiler.4.2.0\lib\net40\SharpDX.D3DCompiler.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.Direct3D11.4.2.0\lib\net40\SharpDX.Direct3D11.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DXGI, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpDX.DXGI.4.2.0\lib\net40\SharpDX.DXGI.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Component.cs" />
+    <Compile Include="Geometry\BoundingBox.cs" />
+    <Compile Include="Geometry\Geometry.cs" />
+    <Compile Include="Geometry\IGeometry.cs" />
+    <Compile Include="Geometry\PickRay.cs" />
+    <Compile Include="Material\ConstantBuffer.cs" />
+    <Compile Include="Material\GeometryShader.cs" />
+    <Compile Include="Material\IConstantBuffer.cs" />
+    <Compile Include="Material\ITexture.cs" />
+    <Compile Include="Material\Material.cs" />
+    <Compile Include="Material\MaterialPass.cs" />
+    <Compile Include="Material\PixelShader.cs" />
+    <Compile Include="Material\Shader.cs" />
+    <Compile Include="Material\ShaderProgram.cs" />
+    <Compile Include="Material\Texture2D.cs" />
+    <Compile Include="Material\TextureFilter.cs" />
+    <Compile Include="Material\TypelessConstantBuffer.cs" />
+    <Compile Include="Material\VertexShader.cs" />
+    <Compile Include="PipelineStates\BlendState.cs" />
+    <Compile Include="PipelineStates\DepthStencilState.cs" />
+    <Compile Include="PipelineStates\RasterizerState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderer\IRendererValue.cs" />
+    <Compile Include="Renderer\Renderer.cs" />
+    <Compile Include="Renderer\RendererValue.cs" />
+    <Compile Include="RenderTarget\DepthStencilBuffer.cs" />
+    <Compile Include="RenderTarget\IColorBuffer.cs" />
+    <Compile Include="RenderTarget\IRenderTarget.cs" />
+    <Compile Include="RenderTarget\RenderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RenderTarget\RenderTarget.cs" />
+    <Compile Include="RenderTarget\StreamOutputBuffer.cs" />
+    <Compile Include="RenderTarget\TextureColorBuffer.cs" />
+    <Compile Include="RenderTarget\WindowColorBuffer.cs" />
+    <Compile Include="RenderTarget\WindowRenderTarget.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IgnitionDX.Math\IgnitionDX.Math.csproj">
+      <Project>{d565f479-bcbb-4b19-9693-87868941b1d7}</Project>
+      <Name>IgnitionDX.Math</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IgnitionDX.Utilities\IgnitionDX.Utilities.csproj">
+      <Project>{f3479d53-87e7-415c-bae3-d150282a81d6}</Project>
+      <Name>IgnitionDX.Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
